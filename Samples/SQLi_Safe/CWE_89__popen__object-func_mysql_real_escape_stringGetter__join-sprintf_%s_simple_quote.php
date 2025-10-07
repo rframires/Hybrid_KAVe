@@ -1,0 +1,43 @@
+<?php
+
+
+
+
+
+
+
+$handle = popen('/bin/cat /tmp/tainted.txt', 'r');
+$tainted = fread($handle, 4096);
+pclose($handle);
+
+class Sanitize{
+  private $data;
+  public function __construct($input){
+    $this->data = $input ;
+  }
+  public function getData(){
+    return $this->data;
+  }
+  public function sanitize(){
+    $this->data = mysql_real_escape_string($this->data) ;
+  }
+}
+$sanitizer = new Sanitize($tainted) ;
+$sanitizer->sanitize();
+$tainted = $sanitizer->getData(); 
+
+$query = sprintf("SELECT lastname, firstname FROM drivers, vehicles WHERE drivers.id = vehicles.ownerid AND vehicles.tag='%s'", $tainted);
+
+$conn = mysql_connect('localhost', 'mysql_user', 'mysql_password'); // Connection to the database (address, user, password)
+mysql_select_db('dbname') ;
+echo "query : ". $query ."<br /><br />" ;
+
+$res = mysql_query($query); //execution
+
+while($data =mysql_fetch_array($res)){
+print_r($data) ;
+echo "<br />" ;
+} 
+mysql_close($conn);
+
+?>

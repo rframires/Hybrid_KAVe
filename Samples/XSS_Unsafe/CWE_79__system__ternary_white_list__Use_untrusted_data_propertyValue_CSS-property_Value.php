@@ -1,0 +1,24 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+<?php
+$tainted = system('ls', $retval);
+
+$tainted = $tainted  == 'safe1' ? 'safe1' : 'safe2';
+
+//flaw
+echo "body { color :". $tainted ." ; }" ;
+?>
+ </style> 
+ </script>
+</head>
+<body>
+<h1>Hello World!</h1>
+</body>
+</html>

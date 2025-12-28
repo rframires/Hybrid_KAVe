@@ -1,0 +1,67 @@
+digraph "energy.php" {
+rankdir=LR;
+fontsize=8;
+node [ shape = polygon, sides = 4 ];
+"_main" [color=lightblue2,style=filled];
+"secs" [color=lightblue2,style=filled];
+/* not repeating toMySQL -> substr */
+/* not repeating toMySQL -> substr */
+/* not repeating toMySQL -> substr */
+/* not repeating toMySQL -> substr */
+/* not repeating toMySQL -> substr */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> date */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> date */
+/* not repeating _main -> mktime */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+  edge [color=black];
+    "_main" -> "toMySQL" [style=dashed];
+/* not repeating _main -> toMySQL */
+/* not repeating _main -> toMySQL */
+/* not repeating _main -> toMySQL */
+/* not repeating _main -> mysql_query */
+/* not repeating _main -> mysql_fetch_array */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> strtotime */
+/* not repeating _main -> mysql_query */
+/* not repeating _main -> mysql_fetch_array */
+/* not repeating _main -> date */
+/* not repeating _main -> date */
+/* not repeating _main -> round */
+/* not repeating _main -> round */
+/* not repeating _main -> date */
+}

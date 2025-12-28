@@ -2,7 +2,7 @@ from openai import OpenAI
 import os
 import csv
 
-client = OpenAI() #Add API Key
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Function to analyze vulnerabilities with role-based prompting
 def analyze_vulnerabilities(code_snippet, vulnerability_type):
@@ -66,19 +66,19 @@ def analyze_folder(folder_path, output_csv, vulnerability_type):
     print(f"Results saved to {output_csv}")
 
 # Example usage for SQL Injection analysis
-folder_path_sqli = "Samples/SQLi_Safe/"
-output_csv_sqli = "results_sqli_safe_role_based.csv"
+folder_path_sqli = "../Samples/SQLi_Safe/"
+output_csv_sqli = "../output/results_sqli_safe_role_based.csv"
 analyze_folder(folder_path_sqli, output_csv_sqli, "SQLi")
 
-folder_path_sqli = "Samples/SQLi_Unsafe/"
-output_csv_sqli = "results_sqli_unsafe_role_based.csv"
+folder_path_sqli = "../Samples/SQLi_Unsafe/"
+output_csv_sqli = "../output/results_sqli_unsafe_role_based.csv"
 analyze_folder(folder_path_sqli, output_csv_sqli, "SQLi")
 
 # Example usage for XSS analysis
-folder_path_xss = "Samples/XSS_Safe/"
-output_csv_xss = "results_xss_safe_role_based.csv"
+folder_path_xss = "../Samples/XSS_Safe/"
+output_csv_xss = "../output/results_xss_safe_role_based.csv"
 analyze_folder(folder_path_xss, output_csv_xss, "XSS")
 
-folder_path_xss = "Samples/XSS_Unsafe/"
-output_csv_xss = "results_xss_unsafe_role_based.csv"
+folder_path_xss = "../Samples/XSS_Unsafe/"
+output_csv_xss = "../output/results_xss_unsafe_role_based.csv"
 analyze_folder(folder_path_xss, output_csv_xss, "XSS")

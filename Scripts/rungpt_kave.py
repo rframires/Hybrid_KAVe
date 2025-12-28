@@ -3,7 +3,7 @@ import os
 import csv
 from openai import OpenAI
 
-client = OpenAI() #Add API Key
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Function to run the external tool and get its output
 def get_tool_output(file_path):
@@ -88,19 +88,19 @@ def analyze_folder(folder_path, output_csv, vulnerability_type):
     print(f"Results saved to {output_csv}")
 
 # Example usage for SQL Injection analysis
-folder_path_sqli_safe = "Samples/SQLi_Safe/"
-output_csv_sqli_safe = "results_sqli_safe_kave.csv"
+folder_path_sqli_safe = "../Samples/SQLi_Safe/"
+output_csv_sqli_safe = "../output/results_sqli_safe_kave.csv"
 analyze_folder(folder_path_sqli_safe, output_csv_sqli_safe, "SQLi")
 
-folder_path_sqli_unsafe = "Samples/SQLi_Unsafe/"
-output_csv_sqli_unsafe = "results_sqli_unsafe_kave.csv"
+folder_path_sqli_unsafe = "../Samples/SQLi_Unsafe/"
+output_csv_sqli_unsafe = "../output/results_sqli_unsafe_kave.csv"
 analyze_folder(folder_path_sqli_unsafe, output_csv_sqli_unsafe, "SQLi")
 
 # Example usage for XSS analysis
-folder_path_xss_safe = "Samples/XSS_Safe/"
-output_csv_xss_safe = "results_xss_safe_kave.csv"
+folder_path_xss_safe = "../Samples/XSS_Safe/"
+output_csv_xss_safe = "../output/results_xss_safe_kave.csv"
 analyze_folder(folder_path_xss_safe, output_csv_xss_safe, "XSS")
 
-folder_path_xss_unsafe = "Samples/XSS_Unsafe/"
-output_csv_xss_unsafe = "results_xss_unsafe_kave.csv"
+folder_path_xss_unsafe = "../Samples/XSS_Unsafe/"
+output_csv_xss_unsafe = "../output/results_xss_unsafe_kave.csv"
 analyze_folder(folder_path_xss_unsafe, output_csv_xss_unsafe, "XSS")

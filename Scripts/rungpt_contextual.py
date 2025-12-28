@@ -2,7 +2,7 @@ from openai import OpenAI
 import os
 import csv
 
-client = OpenAI() #Add API Key
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def analyze_vulnerabilities(code_snippet):
     response = client.chat.completions.create(
@@ -19,7 +19,7 @@ def analyze_vulnerabilities(code_snippet):
     return response.choices[0].message.content.strip()
 
 
-def analyze_folder(folder_path, output_csv):
+def analyze_folder(folder_path, output_csv, vulnerability_type):
     # Open the CSV file in write mode
     with open(output_csv, mode="w", newline="") as csv_file:
         writer = csv.writer(csv_file)
@@ -46,19 +46,19 @@ def analyze_folder(folder_path, output_csv):
     print(f"Results saved to {output_csv}")
 
 # Example usage for SQL Injection analysis
-folder_path_sqli_unsafe = "Samples/SQLi_Unsafe/"
-output_csv_sqli_unsafe = "results_sqli_contextual_unsafe.csv"
+folder_path_sqli_unsafe = "../Samples/SQLi_Unsafe/"
+output_csv_sqli_unsafe = "../output/results_sqli_contextual_unsafe.csv"
 analyze_folder(folder_path_sqli_unsafe, output_csv_sqli_unsafe, "SQLi")
 
-folder_path_sqli_safe = "Samples/SQLi_Safe/"
-output_csv_sqli_safe = "results_sqli_contextual_safe.csv"
+folder_path_sqli_safe = "../Samples/SQLi_Safe/"
+output_csv_sqli_safe = "../output/results_sqli_contextual_safe.csv"
 analyze_folder(folder_path_sqli_safe, output_csv_sqli_safe, "SQLi")
 
 # Example usage for XSS analysis
-folder_path_xss_unsafe = "Samples/XSS_Unsafe/"
-output_csv_xss_unsafe = "results_xss_contextual_unsafe.csv"
+folder_path_xss_unsafe = "../Samples/XSS_Unsafe/"
+output_csv_xss_unsafe = "../output/results_xss_contextual_unsafe.csv"
 analyze_folder(folder_path_xss_unsafe, output_csv_xss_unsafe, "XSS")
 
-folder_path_xss_safe = "Samples/XSS_Safe/"
-output_csv_xss_safe = "results_xss_contextual_safe.csv"
+folder_path_xss_safe = "../Samples/XSS_Safe/"
+output_csv_xss_safe = "../output/results_xss_contextual_safe.csv"
 analyze_folder(folder_path_xss_safe, output_csv_xss_safe, "XSS")

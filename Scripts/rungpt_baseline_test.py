@@ -78,22 +78,24 @@ def analyze_folder(folder_path, output_csv, vulnerability_type):
     print(f"[OK] Results saved to: {output_csv}")
     print(f"{'='*60}\n")
 
+
+# TEST VERSION - Using Samples2 with only 10 files per folder
 # Example usage for SQL Injection analysis
-folder_path_sqli_unsafe = "../Samples/SQLi_Unsafe/"
-output_csv_sqli_unsafe = "../output/results_sqli_baseline_unsafe.csv"
+folder_path_sqli_unsafe = "../Samples2/SQLi_Unsafe/"
+output_csv_sqli_unsafe = "../output/results_sqli_baseline_unsafe_test.csv"
 analyze_folder(folder_path_sqli_unsafe, output_csv_sqli_unsafe, "SQLi")
 
-folder_path_sqli_safe = "../Samples/SQLi_Safe/"
-output_csv_sqli_safe = "../output/results_sqli_baseline_safe.csv"
+folder_path_sqli_safe = "../Samples2/SQLi_Safe/"
+output_csv_sqli_safe = "../output/results_sqli_baseline_safe_test.csv"
 analyze_folder(folder_path_sqli_safe, output_csv_sqli_safe, "SQLi")
 
 # Example usage for XSS analysis
-folder_path_xss_unsafe = "../Samples/XSS_Unsafe/"
-output_csv_xss_unsafe = "../output/results_xss_baseline_unsafe.csv"
+folder_path_xss_unsafe = "../Samples2/XSS_Unsafe/"
+output_csv_xss_unsafe = "../output/results_xss_baseline_unsafe_test.csv"
 analyze_folder(folder_path_xss_unsafe, output_csv_xss_unsafe, "XSS")
 
-folder_path_xss_safe = "../Samples/XSS_Safe/"
-output_csv_xss_safe = "../output/results_xss_baseline_safe.csv"
+folder_path_xss_safe = "../Samples2/XSS_Safe/"
+output_csv_xss_safe = "../output/results_xss_baseline_safe_test.csv"
 analyze_folder(folder_path_xss_safe, output_csv_xss_safe, "XSS")
 
 # Final summary
@@ -105,6 +107,5 @@ print(f"  [OK] {output_csv_sqli_unsafe}")
 print(f"  [OK] {output_csv_sqli_safe}")
 print(f"  [OK] {output_csv_xss_unsafe}")
 print(f"  [OK] {output_csv_xss_safe}")
-print("\nExperiment completed successfully!")
+print("\nTest experiment completed successfully!")
 print("="*60 + "\n")
-

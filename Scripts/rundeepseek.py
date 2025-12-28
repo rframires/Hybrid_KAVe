@@ -3,7 +3,7 @@ import os
 import csv
 from openai import OpenAI
 
-client = OpenAI(api_key="add_api_key", base_url="https://api.deepseek.com")
+client = OpenAI(api_key=os.getenv("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com")
 
 # Function to analyze vulnerabilities with a combined approach
 def analyze_vulnerabilities(code_snippet, vulnerability_type):
@@ -68,19 +68,19 @@ def analyze_folder(folder_path, output_csv, vulnerability_type):
     print(f"Results saved to {output_csv}")
 
 # Example usage for SQL Injection analysis
-folder_path_sqli_safe = "Samples/SQLi_Safe/"
-output_csv_sqli_safe = "results_sqli_safe_deepseek.csv"
+folder_path_sqli_safe = "../Samples/SQLi_Safe/"
+output_csv_sqli_safe = "../output/results_sqli_safe_deepseek.csv"
 analyze_folder(folder_path_sqli_safe, output_csv_sqli_safe, "SQLi")
 
-folder_path_sqli_unsafe = "Samples/SQLi_Unsafe/"
-output_csv_sqli_unsafe = "results_sqli_unsafe_deepseek.csv"
+folder_path_sqli_unsafe = "../Samples/SQLi_Unsafe/"
+output_csv_sqli_unsafe = "../output/results_sqli_unsafe_deepseek.csv"
 analyze_folder(folder_path_sqli_unsafe, output_csv_sqli_unsafe, "SQLi")
 
 # Example usage for XSS analysis
-folder_path_xss_safe = "Samples/XSS_Safe/"
-output_csv_xss_safe = "results_xss_safe_deepseek.csv"
+folder_path_xss_safe = "../Samples/XSS_Safe/"
+output_csv_xss_safe = "../output/results_xss_safe_deepseek.csv"
 analyze_folder(folder_path_xss_safe, output_csv_xss_safe, "XSS")
 
-folder_path_xss_unsafe = "Samples/XSS_Unsafe/"
-output_csv_xss_unsafe = "results_xss_unsafe_deepseek.csv"
+folder_path_xss_unsafe = "../Samples/XSS_Unsafe/"
+output_csv_xss_unsafe = "../output/results_xss_unsafe_deepseek.csv"
 analyze_folder(folder_path_xss_unsafe, output_csv_xss_unsafe, "XSS")

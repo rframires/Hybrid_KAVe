@@ -2,7 +2,7 @@ from openai import OpenAI
 import os
 import csv
 
-client = OpenAI() #Add API Key
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Function to analyze vulnerabilities with a combined approach
 def analyze_vulnerabilities(code_snippet, vulnerability_type):
@@ -80,19 +80,19 @@ def analyze_folder(folder_path, output_csv, vulnerability_type):
     print(f"Results saved to {output_csv}")
 
 # Example usage for SQL Injection analysis
-folder_path_sqli_unsafe = "Samples/SQLi_Unsafe/"
-output_csv_sqli_unsafe = "results_sqli_combined_unsafe.csv"
+folder_path_sqli_unsafe = "../Samples/SQLi_Unsafe/"
+output_csv_sqli_unsafe = "../output/results_sqli_combined_unsafe.csv"
 analyze_folder(folder_path_sqli_unsafe, output_csv_sqli_unsafe, "SQLi")
 
-folder_path_sqli_safe = "Samples/SQLi_Safe/"
-output_csv_sqli_safe = "results_sqli_combined_safe.csv"
+folder_path_sqli_safe = "../Samples/SQLi_Safe/"
+output_csv_sqli_safe = "../output/results_sqli_combined_safe.csv"
 analyze_folder(folder_path_sqli_safe, output_csv_sqli_safe, "SQLi")
 
 # Example usage for XSS analysis
-folder_path_xss_unsafe = "Samples/XSS_Unsafe/"
-output_csv_xss_unsafe = "results_xss_combined_unsafe.csv"
+folder_path_xss_unsafe = "../Samples/XSS_Unsafe/"
+output_csv_xss_unsafe = "../output/results_xss_combined_unsafe.csv"
 analyze_folder(folder_path_xss_unsafe, output_csv_xss_unsafe, "XSS")
 
-folder_path_xss_safe = "Samples/XSS_Safe/"
-output_csv_xss_safe = "results_xss_combined_safe.csv"
+folder_path_xss_safe = "../Samples/XSS_Safe/"
+output_csv_xss_safe = "../output/results_xss_combined_safe.csv"
 analyze_folder(folder_path_xss_safe, output_csv_xss_safe, "XSS")
